@@ -65,5 +65,7 @@ def LoginView(request):
             return redirect('login')
     return render(request,'login.html')
 
-
+def LogoutView(request):
+    logout(request)
+    return redirect('login')
 # Create your views here.
