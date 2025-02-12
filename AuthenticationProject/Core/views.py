@@ -81,7 +81,7 @@ def ForgotPassword(request):
 
             password_reset_url = reverse('reset-password',kwargs={'reset_id': new_password_reset.reset_id})
             full_password_reset_url = f'{request.scheme}://{request.get_host()}{password_reset_url}'
-            email_body = f"Reset your password using the link below:n\n\n{full_password_reset_url}",
+            email_body = f"Reset your password using the link below:n\n\n{full_password_reset_url}"
         
             email_message = EmailMessage(
                 'Reset your password',
@@ -115,7 +115,7 @@ def ResetPassword(request,reset_id):
         if request.method == "POST":
             password = request.POST.get('password')
             confirm_password = request.POST.get('confirm-password')
-
+            print("password:", password,confirm_password)
             passwords_have_error = False
 
             if password != confirm_password:
